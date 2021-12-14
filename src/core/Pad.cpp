@@ -275,8 +275,10 @@ void EveryoneAttacksGangsCheat()
 {
 	CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
 	for (int i = PEDTYPE_CIVMALE; i < PEDTYPE_SPECIAL; i++)
-		CPedType::SetThreats(i, PED_FLAG_GANG1 | PED_FLAG_GANG2 | PED_FLAG_GANG3 | PED_FLAG_GANG4 | PED_FLAG_GANG5 |
-			PED_FLAG_GANG6 | PED_FLAG_GANG7 | PED_FLAG_GANG8 | PED_FLAG_GANG9 );
+	CPedType::SetThreats(i, PED_FLAG_GANG1 | PED_FLAG_GANG2 | PED_FLAG_GANG3 | PED_FLAG_GANG4 | PED_FLAG_GANG5 |
+	PED_FLAG_GANG6 | PED_FLAG_GANG7 | PED_FLAG_GANG8 | PED_FLAG_GANG9 );
+
+    CPopulation::ms_bGivePedsWeapons = !CPopulation::ms_bGivePedsWeapons;
 }
 
 void LockPlayersCarCheat()
