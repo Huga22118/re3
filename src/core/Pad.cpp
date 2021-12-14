@@ -271,6 +271,35 @@ void OnlyRenderWheelsCheat()
 	CVehicle::bWheelsOnlyCheat = !CVehicle::bWheelsOnlyCheat;
 }
 
+void EveryoneAttacksGangsCheat()
+{
+	CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
+	for (int i = PEDTYPE_CIVMALE; i < PEDTYPE_SPECIAL; i++)
+		CPedType::SetThreats(i, PED_FLAG_GANG1 | PED_FLAG_GANG2 | PED_FLAG_GANG3 | PED_FLAG_GANG4 | PED_FLAG_GANG5 |
+			PED_FLAG_GANG6 | PED_FLAG_GANG7 | PED_FLAG_GANG8 | PED_FLAG_GANG9 );
+}
+
+void LockPlayersCarCheat()
+{
+	CPlayerPed *hugare3 = FindPlayerPed();
+	CVehicle *hugare3vehicle = FindPlayerVehicle();
+	if (hugare3 && hugare3->InVehicle())
+	{
+		hugare3vehicle->m_nDoorLock = CARLOCK_LOCKED_PLAYER_INSIDE;
+		CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
+	}
+}
+
+void UnlockPlayersCarCheat()
+{
+	CPed *hugare3 = FindPlayerPed();
+	CVehicle *hugare3vehicle = FindPlayerVehicle();
+	if (hugare3 && hugare3->InVehicle() && (hugare3vehicle->m_nDoorLock = CARLOCK_LOCKED_PLAYER_INSIDE))
+	{
+		hugare3vehicle->m_nDoorLock = CARLOCK_UNLOCKED;
+		CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
+	}
+}
 
 void ChittyChittyBangBangCheat()
 {
