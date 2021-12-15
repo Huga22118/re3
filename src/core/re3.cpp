@@ -711,6 +711,8 @@ void ChittyChittyBangBangCheat();
 void StrongGripCheat();
 void SpecialCarCheats();
 void PickUpChicksCheat();
+void LockPlayersVehicleCheat();
+void UnlockPlayersVehicleCheat();
 
 DebugMenuEntry *carCol1;
 DebugMenuEntry *carCol2;
@@ -972,6 +974,8 @@ DebugMenuPopulate(void)
 		DebugMenuAddCmd("Cheats", "Strong grip", StrongGripCheat);
 		DebugMenuAddCmd("Cheats", "Special car", SpecialCarCheats);
 		DebugMenuAddCmd("Cheats", "Pickup chicks", PickUpChicksCheat);
+		DebugMenuAddCmd("Cheats", "Lock Players Vehicle", LockPlayersVehicleCheat);
+		DebugMenuAddCmd("Cheats", "Unlock Players Vehicle", UnlockPlayersVehicleCheat);
 
 		static int spawnCarId = MI_LANDSTAL;
 		e = DebugMenuAddVar("Spawn", "Spawn Car ID", &spawnCarId, nil, 1, MI_LANDSTAL, MI_VICECHEE, carnames);

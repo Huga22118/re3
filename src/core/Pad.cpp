@@ -286,6 +286,28 @@ void WeaponCheat3()
 #endif
 }
 
+void LockPlayersVehicleCheat()
+{
+	CPed *tommy = FindPlayerPed();
+	CVehicle *tommyvehicle = FindPlayerVehicle();
+	if (tommy && tommy->InVehicle())
+	{
+		tommyvehicle->m_nDoorLock = CARLOCK_LOCKED_PLAYER_INSIDE;
+		CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
+	}
+}
+
+void UnlockPlayersVehicleCheat()
+{
+	CPed *tommy = FindPlayerPed();
+	CVehicle *tommyvehicle = FindPlayerVehicle();
+	if (tommy && tommy->InVehicle() && (tommyvehicle->m_nDoorLock = CARLOCK_LOCKED_PLAYER_INSIDE))
+	{
+		tommyvehicle->m_nDoorLock = CARLOCK_UNLOCKED;
+		CHud::SetHelpMessage(TheText.Get("CHEAT1"), true);
+	}
+}
+
 void HealthCheat()
 {
 	CHud::SetHelpMessage(TheText.Get("CHEAT3"), true);
